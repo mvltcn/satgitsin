@@ -1,0 +1,106 @@
+﻿@{ 
+    if (Session["yetkiid"]==null)
+    {
+        Response.Redirect("~/Home/Index");
+    }
+    if (Convert.ToInt32(Session["yetkiid"])!=1)
+    {
+        Response.Redirect("~/Home/Index");
+    }
+
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Sat Gitsin</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<div class="navbar navbar-inverse navbar-fixed-top">
+
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        @Html.ActionLink("Sat Gitsin", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    </div>
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            <li>@Html.ActionLink("Anasayfa", "Index", "Home")</li>
+            <li>@Html.ActionLink("Hakkında", "About", "Home")</li>
+            <li>@Html.ActionLink("İletişim", "Contact", "Home")</li>
+        </ul>
+    </div>
+   
+
+</div>
+<body>
+
+    <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <div class="sidebar-sticky">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/Admin/Index/">
+                            <span data-feather="home"></span>
+                            Admin Özet <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/AdminKategori/Index/">
+                            <span data-feather="file"></span>
+                            Kategoriler
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/AdminIlan/Index/">
+                            <span data-feather="shopping-cart"></span>
+                            İlanlar
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/AdminUye/Index/">
+                            <span data-feather="users"></span>
+                            Üyeler
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="bar-chart-2"></span>
+                            Mesajlar
+                        </a>
+                    </li>
+                    
+                </ul>
+
+                
+            </div>
+        </nav>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">Özet Sayfası</h1>
+                <div>
+                    @RenderBody()
+
+
+                </div>
+            </div>
+
+            <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
+
+
+        </main>
+    </div>
+    
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

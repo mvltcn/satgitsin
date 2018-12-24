@@ -1,0 +1,28 @@
+﻿@model SatGitsin2.Models.Ilan
+
+@{
+    ViewBag.Title = "IlanDetay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="thumbnail">
+    <img class="img-responsive" src="@Model.Foto" width="320"  alt="">
+    <div class="caption-full">
+        <h4 class="pull-right">@Model.Fiyat ₺</h4>
+        <h4>
+            <a href="#">@Model.Baslik</a>
+        </h4>        
+        <p>@Model.Ozellik</p>
+    </div>
+    <div class="ratings">
+        <p class="pull-right">@Model.Gorulme görüntülenme</p>
+        <p>
+            <a href="/Uye/UyeProfil/@Model.Uye.UyeId"> @Model.Uye.KullaniciAdi</a>
+        </p>
+    </div>
+</div>
+
+
+
+

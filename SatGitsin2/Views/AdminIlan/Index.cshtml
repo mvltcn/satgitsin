@@ -1,0 +1,82 @@
+﻿@model IEnumerable<SatGitsin2.Models.Ilan>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Admin İlan</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Kategori.KategoriAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mesaj.Icerik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Baslik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ozellik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Foto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tarih)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UyeId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gorulme)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fiyat)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kategori.KategoriAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mesaj.Icerik)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Baslik)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ozellik)
+        </td>
+        <td>
+            <img width="75" src="@item.Foto" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tarih)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UyeId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gorulme)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fiyat)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Edit", new { id=item.IlanId }) |
+            @Html.ActionLink("Detay", "Details", new { id=item.IlanId }) |
+            @Html.ActionLink("Sil", "Delete", new { id=item.IlanId })
+        </td>
+    </tr>
+}
+
+</table>
