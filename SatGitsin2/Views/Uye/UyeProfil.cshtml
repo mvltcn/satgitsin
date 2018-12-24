@@ -10,7 +10,7 @@
 <div>
     <hr />
     <dl class="dl-horizontal">
-       
+
 
         <dt>
             @Html.DisplayNameFor(model => model.Email)
@@ -20,7 +20,7 @@
             @Html.DisplayFor(model => model.Email)
         </dd>
 
-        
+
 
         <dt>
             @Html.DisplayNameFor(model => model.AdSoyad)
@@ -37,7 +37,9 @@
         <dd>
             <img src="@Model.Foto" width="75" class="img-circle" alt="@Model.AdSoyad" />
         </dd>
+        <li><a href="/UyeIlan/Index/@Model.UyeId">İlanlarına Git</a></li>
 
     </dl>
 </div>
+
 

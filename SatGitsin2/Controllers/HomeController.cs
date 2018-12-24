@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using SatGitsin2.Models;
 using PagedList;
 using PagedList.Mvc;
+using System.Threading;
+using System.Globalization;
 
 namespace SatGitsin2.Controllers
 {
@@ -15,6 +17,9 @@ namespace SatGitsin2.Controllers
         public ActionResult Index(int Page=1)
         {
             var ilan = db.Ilan.OrderByDescending(m => m.IlanId).ToPagedList(Page,12);
+           
+                
+            
             return View(ilan);
         }
         public ActionResult IlanDetay(int id)
