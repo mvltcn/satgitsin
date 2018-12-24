@@ -1,4 +1,13 @@
-﻿@model SatGitsin2.Models.Ilan
+﻿@{
+    if (Session["uyeid"] == null)
+    {
+        Response.Redirect("~/Home/Index");
+    }
+
+}
+
+
+@model SatGitsin2.Models.Ilan
 
 @{
     ViewBag.Title = "Create";
@@ -89,7 +98,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Oluştur" class="btn btn-default" />
             </div>
         </div>
     </div>
